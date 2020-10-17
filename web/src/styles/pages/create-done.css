@@ -1,0 +1,77 @@
+#page-done {
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  background: #37C77F;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-done .content-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 1100px;
+
+  height: 100%;
+  max-height: 680px;
+  
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: url('../../images/done.svg') no-repeat 90% center;
+}
+
+#page-done .content-wrapper main {
+  max-width: 360px;
+}
+
+#page-done .content-wrapper main h1 {
+  position: absolute;
+  right: 60%;
+  top: 20%;
+    
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 80px;
+}
+
+#page-done .content-wrapper main p { 
+  position: absolute;
+  left: 12%;
+  right: 50%;
+  top: 36%;
+  
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.content-wrapper .back-map {
+  position: absolute;
+  right: 60.97%;
+  bottom: 29.39%;
+
+  width: 243px;
+  height: 64px;
+  background: #31B272;
+  border-radius: 20px;
+
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.content-wrapper .back-map:hover {
+  background: #3BD689;
+}

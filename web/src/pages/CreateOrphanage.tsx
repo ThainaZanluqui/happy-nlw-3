@@ -72,7 +72,7 @@ export default function OrphanagesMap() {
 
     alert('Cadastro realizado com sucesso!');
 
-    history.push('/app');
+    history.push('/done');
   }
 
   return (
@@ -180,7 +180,7 @@ export default function OrphanagesMap() {
               </div>
             </div>
           </fieldset>
-
+          
           <button className="confirm-button" type="submit">
             Confirmar
           </button>

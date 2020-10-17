@@ -60,6 +60,32 @@
   font-weight: 800;
 }
 
+.content-wrapper .enter-access {
+  position: absolute;
+  right: 0;
+  border: 0;
+  top: 73px;
+ 
+  width: 222px;
+  height: 56px;
+  background: #12D4E0;
+  border-radius: 20px;
+
+  color: #FFFFFF;
+  font-weight: 800;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.content-wrapper .enter-access:hover {
+  background: #96feff;
+}
+
 .content-wrapper .enter-app {
   position: absolute;
   right: 0;
