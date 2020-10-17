@@ -10,7 +10,6 @@ O Happy é uma aplicação que conecta pessoas à casas de acolhimento instituci
 - TypeScript
 
 ## Implementações
-### Frontend
 - [x] Página done após o cadastro de orfanato.
 - [x] Botão acesso restrito na home.
 - [ ] Criação da página de Login (acesso restrito)
