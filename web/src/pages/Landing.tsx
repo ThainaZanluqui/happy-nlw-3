@@ -17,12 +17,8 @@ const pages: React.FC = () => {
           <p>Visite orfanatos e mude o dia de muitas crianças.</p>
         </main>
 
-        <div className="location">
-          <strong>São Paulo</strong>
-          <span>Sacomã</span>
-        </div>
 
-        <Link to="/app" className="enter-access">
+        <Link to="/login" className="enter-access">
           Acesso Restrito
         </Link>
 
