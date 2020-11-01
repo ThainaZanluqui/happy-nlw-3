@@ -1,65 +1,85 @@
-import React from 'react';
+import React, { useRef, useCallback, useContext} from 'react';
+import { FormHandles } from '@unform/core'
+import { Form } from '@unform/web'
+import { useField } from '@unform/core';
+import * as Yup from 'yup'
 
 import { FiArrowLeft } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
 import logoImg from '../../images/logo-2.svg'
 
-import './styles.css';
+import AuthContext from '../../contexts/AuthContext'
+
+import { Container, Content, Background } from './styles'
 
 const Login: React.FC = () => {
+
+  // Handler Submit
+  const formRef = useRef<FormHandles>(null)
+
+  const { name } = useContext(AuthContext)
+
+
+  const handleSubmit = useCallback(async (data: object) => {
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('E-mail obrigatorio')
+          .email('Digite um e-mail válido'),
+        password: Yup.string().required('Senha obrigatoria'),
+      })
+
+      await schema.validate(data, {
+        abortEarly: false,
+      })
+
+    } catch (err) {
+
+    }
+  }, [])
+
   return (
-    <div id="login">
-      <div className='content-wrapper'>
-        <img src={logoImg} alt='Happy' />
+    <Container>
+      <Background>
+        <img src={logoImg} alt="Happy"/>
 
-        <div className='location'>
-          <strong>Sacomã</strong>
-          <span>São Paulo</span>
-        </div>
-      </div>
+        <strong>Sacomã</strong>
+        <span>São Paulo</span>
+      </Background>
 
-      <main>
+      <Content>
         <Link to="/" className="back">
-          <FiArrowLeft size={20} color="#15c3d6" />
+        <FiArrowLeft size={20} color="#15c3d6" />
         </Link>
 
-        <form className="login-form">
-          <fieldset>
-            <legend>Fazer login</legend>
+        <Form ref={formRef} onSubmit={handleSubmit}>
+          <h1>Fazer login</h1>
 
-            <div className="input-block">
-              <label htmlFor="email">E-mail</label>
-              <input
-                id='email'
-                name='email'
-                autoComplete='email'
-                maxLength={255}
-              />
-            </div>
+          <input 
+            id='email' 
+            name='email' 
+            autoComplete='email' 
+            placeholder="E-mail"
+          />
 
-            <div className="input-block">
-              <label htmlFor="about">Senha</label>
-              <input id="password" type="password" autoComplete="current-password" maxLength={255} />
-            </div>
+          <input  
+            id='password' 
+            name='password' 
+            type="password" 
+            placeholder="Senha"
+          />
 
-            <div className="input-group">
-              <div className="check-block">
-                <input type="checkbox" name='remember' id='remember' />
-                <label htmlFor='remember'>Lembrar-me</label>
-              </div>
+          <Link to="" className="changePass">
+            Esqueci minha senha
+          </Link>
 
-              <Link to="/forgot/password">
-                Esqueci minha senha
-              </Link>
-            </div>
-          </fieldset>
-
-          <button className="confirm-button" type="submit">
+          <button type="submit">
             Confirmar
           </button>
-        </form>
-      </main>
-    </div>
+        </Form>
+      </Content>
+    </Container>
+
   );
 };
 
